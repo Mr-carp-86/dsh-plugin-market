@@ -9,8 +9,33 @@
 - 校验：已通过 DSH 自己的 `parseMarketIndex()`（`@deepseek-ai/dsh-plugin-market-index`）
 - 兼容性：用 DSH 安装里的 `evaluatePluginCompatibility()` **原版代码**逐版本判定（不是手写规则）
 
+## 公网地址（已托管）
+
+仓库：<https://github.com/Mr-carp-86/dsh-plugin-market>（public）
+
+**填进「插件 → 发现 → 添加索引源」的是这个 URL（推荐，走 jsDelivr，国内通常可直连）：**
+
+```
+https://cdn.jsdelivr.net/gh/Mr-carp-86/dsh-plugin-market@main/index.json
+```
+
+备用地址：
+
+| 用途 | URL |
+|---|---|
+| GitHub raw | `https://raw.githubusercontent.com/Mr-carp-86/dsh-plugin-market/main/index.json` |
+| jsDelivr（钉死到某个提交，永不因缓存变旧） | `https://cdn.jsdelivr.net/gh/Mr-carp-86/dsh-plugin-market@3e1c91a/index.json` |
+| jsDelivr 强制刷新缓存 | `https://purge.jsdelivr.net/gh/Mr-carp-86/dsh-plugin-market@main/index.json` |
+
+已验证（2026-10-26）：三个 URL 都返回 HTTP 200、`72487` 字节、27 个插件，且取回的 JSON 通过
+`parseMarketIndex()` 校验。
+
+> ⚠️ jsDelivr 对 `@main` 这类分支引用有缓存（最长约 12 小时）。改了 `index.json` 推上去后，
+> 若「发现」页还是旧内容，先访问上面的 purge 链接强制刷新，或直接用钉死提交哈希的地址。
+
 ## 目录
 
+- [公网地址（已托管）](#公网地址已托管)
 - [文件说明](#文件说明)
 - [马上试：本地预览](#马上试本地预览)
 - [长期托管](#长期托管)
